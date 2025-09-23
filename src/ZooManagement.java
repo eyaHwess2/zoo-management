@@ -36,7 +36,7 @@ public class ZooManagement {
 //        System.out.println(myZoo.toString());
 
         Animal lion = new Animal("Felidae", "Lion", 5, true);
-        Zoo myZoo = new Zoo("My Zoo", "Tunis", 25);
+        Zoo myZoo = new Zoo("My Zoo", "Tunis");
         myZoo.animals[0]=lion;
 
         System.out.println("Zoo créé : " + myZoo.name + " à " + myZoo.city);
@@ -44,5 +44,13 @@ public class ZooManagement {
 
         myZoo.displayZoo();
         System.out.println(lion);
+
+        myZoo.addAnimal(new Animal("tigre","tigre1",9,true));
+        myZoo.addAnimal(new Animal("tigre","tigre2",9,true));
+        myZoo.displayZoo();
+        myZoo.addAnimal(new Animal("tigre","tigre3",9,true));
+        myZoo.searchAnimal("tigre3");
+        myZoo.addAnimal(new Animal("tigre","tigre3",9,true));
+        myZoo.searchAnimal("tigre3");
     }
 }
