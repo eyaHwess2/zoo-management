@@ -1,7 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -80,5 +79,16 @@ public class ZooManagement {
         System.out.println("the zoo after removing the animal: ");
         myZoo.displayZoo();
 
+        Dolphin dolphin1 = new Dolphin("Dolphin", "Dolphin", 9, true,"jsp",5);
+        Animal terr = new Terrestrial("cat", "kitty", 9, true,4);
+        Penguin Penguin1 = new Penguin("Penguin", "Penguin", 9, true,"jsp",5);
+        Aquatic aquatic1 = new Aquatic("aqua", "aqua", 9, true,"jsp");
+        System.out.println(dolphin1.toString()); ;
+        System.out.println(terr.toString()); ;
+        System.out.println(Penguin1.toString()); ;
+
+        dolphin1.swim();
+        aquatic1.swim();
+        Penguin1.swim();
     }
 }
