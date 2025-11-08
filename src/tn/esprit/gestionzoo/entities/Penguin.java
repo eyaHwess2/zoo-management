@@ -7,6 +7,14 @@ public class Penguin extends Aquatic{
         this.swimmingDepth = swimmingDepth;
     }
 
+    public float getSwimmingDepth() {
+        return swimmingDepth;
+    }
+
+    public void setSwimmingDepth(float swimmingDepth) {
+        this.swimmingDepth = swimmingDepth;
+    }
+
     @Override
     public String toString() {
         return "Animal {family: "+this.getFamily()+", name: "+this.getName() +", isMammal: "+this.isMammal() +"} Dolphin{" +

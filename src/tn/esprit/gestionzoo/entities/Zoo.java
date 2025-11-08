@@ -7,6 +7,8 @@ public class Zoo {
     private String city;
     static final int nbrCages=25;
     private int nbrAnimals;
+    private Aquatic[] aquaticAnimals= new Aquatic[10];
+    private int nbrAquaticAnimals;
 
     public Zoo(String city, String name) {
 
@@ -110,5 +112,53 @@ public class Zoo {
         }
         return z2;
     }
+
+    public void addAquaticAnimal(Aquatic a){
+        if (nbrAquaticAnimals<10){
+            this.aquaticAnimals[nbrAquaticAnimals++]=a;
+            System.out.println("animal added");
+        }
+        System.out.println("animal cannot be added");
+
+    }
+    //i added this function to avoid doing a "boucle" fel main
+    public void displayAquaticSwim() {
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            aquaticAnimals[i].swim();
+        }
+    }
+
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0;
+
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin p = (Penguin) aquaticAnimals[i];
+                if (p.getSwimmingDepth() > maxDepth) {
+                    maxDepth = p.getSwimmingDepth();
+                }
+            }
+        }
+        return maxDepth;
+    }
+
+
+    public void displayNumberOfAquaticsByType() {
+        int p = 0;
+        int d = 0;
+
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                p++;
+            } else if (aquaticAnimals[i] instanceof Dolphin) {
+                d++;
+            }
+        }
+
+        System.out.println("Number of Penguins: " + p);
+        System.out.println("Number of Dolphins: " + d);
+    }
+
+
 
 }

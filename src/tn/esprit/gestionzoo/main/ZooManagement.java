@@ -90,5 +90,26 @@ public class ZooManagement {
         dolphin1.swim();
         aquatic1.swim();
         Penguin1.swim();
+
+        Dolphin dolphin3 = new Dolphin("Delphinidae", "Flippy", 6, true, "Ocean", 15);
+        Penguin penguin3 = new Penguin("Spheniscidae", "Pingo", 4, true, "Antarctic", 8);
+        myZoo.addAquaticAnimal(dolphin3);
+        myZoo.addAquaticAnimal(penguin3);
+
+        myZoo.displayAquaticSwim();
+        System.out.println("Max penguin swimming depth: " + myZoo.maxPenguinSwimmingDepth());
+        myZoo.displayNumberOfAquaticsByType();
+
+
+        // Tester la méthode equals()
+        Dolphin d1 = new Dolphin("dae", "Flippy", 6, true, "Ocean", 15);
+        Dolphin d2 = new Dolphin("dae", "Flippy", 6, true, "Ocean", 15);
+
+        if (d1.equals(d2)) {
+            System.out.println("The two dolphins are equal!");
+        } else {
+            System.out.println("The two dolphins are different.");
+        }
+
     }
 }
