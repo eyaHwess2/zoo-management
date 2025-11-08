@@ -1,6 +1,8 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -39,7 +41,7 @@ public class ZooManagement {
 
         Animal lion = new Animal("Felidae", "Lion", 5, true);
         Zoo myZoo = new Zoo("Tunis", "My Zoo");
-        myZoo.addAnimal(lion);
+//        myZoo.addAnimal(lion);
 
         System.out.println("Zoo créé : " + myZoo.getName() + " à " + myZoo.getCity());
         System.out.println("Animal créé : " + lion.getName() + " (" + lion.getFamily() + ")");
@@ -50,10 +52,10 @@ public class ZooManagement {
         Animal nb2=new Animal("tigre","tigre2",9,true);
         Animal nb3=new Animal("tigre","tigre3",9,true);
 
-        myZoo.addAnimal(nb1);
-        myZoo.addAnimal(nb2);
+//        myZoo.addAnimal(nb1);
+//        myZoo.addAnimal(nb2);
         myZoo.displayZoo();
-        myZoo.addAnimal(nb3);
+//        myZoo.addAnimal(nb3);
         int index = myZoo.searchAnimal("tigre3");
         if (index != -1) {
             System.out.println("Tiger at position: " + index);
@@ -61,7 +63,23 @@ public class ZooManagement {
             System.out.println("Tiger not found");
         }
         Animal nb4=new Animal("tigre","tigre5",9,true);
-        myZoo.addAnimal(nb4);
+//        myZoo.addAnimal(nb4);
+
+        try {
+            myZoo.addAnimal(nb1);
+            System.out.println("Nombre d’animaux : " + myZoo.getNbrAnimals());
+            myZoo.addAnimal(nb2);
+            System.out.println("Nombre d’animaux : " + myZoo.getNbrAnimals());
+            myZoo.addAnimal(nb3);
+            System.out.println("Nombre d’animaux : " + myZoo.getNbrAnimals());
+            myZoo.addAnimal(nb4); // va lever une exception
+            System.out.println("Nombre d’animaux : " + myZoo.getNbrAnimals());
+        } catch (ZooFullException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        } catch (InvalidAgeException e) {
+            System.out.println("Erreur âge invalide : " + e.getMessage());
+        }
+
         int index2 = myZoo.searchAnimal("tigre5");
         if (index2 != -1) {
             System.out.println("Tiger at position: " + index2);
@@ -71,7 +89,7 @@ public class ZooManagement {
 
         Zoo myZoo2 = new Zoo("Tunis", "My Second Zoo");
         Animal nb5=new Animal("elephant","luf",9,true);
-        myZoo2.addAnimal(nb5);
+//        myZoo2.addAnimal(nb5);
         Zoo biggerZoo= myZoo2.comparerZoo(myZoo);
         System.out.println("the bigger zoo is : " + biggerZoo.getName());
 
