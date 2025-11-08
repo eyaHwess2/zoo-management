@@ -109,8 +109,8 @@ public class ZooManagement {
         aquatic1.swim();
         Penguin1.swim();
 
-        Dolphin dolphin3 = new Dolphin("Delphinidae", "Flippy", 6, true, "Ocean", 15);
-        Penguin penguin3 = new Penguin("Spheniscidae", "Pingo", 4, true, "Antarctic", 8);
+        Dolphin dolphin3 = new Dolphin("f", "Flippy", 6, true, "Ocean", 15);
+        Penguin penguin3 = new Penguin("f", "Pingo", 4, true, "Antarctic", 8);
         myZoo.addAquaticAnimal(dolphin3);
         myZoo.addAquaticAnimal(penguin3);
 
@@ -129,5 +129,16 @@ public class ZooManagement {
             System.out.println("The two dolphins are different.");
         }
 
+
+
+        Aquatic dolphin = new Aquatic("Dauphin", "d", 8, true, "Océan");
+        Penguin penguin = new Penguin("Penguin", "s", 3, false, "Arctique", 20.5f);
+        Terrestrial bear = new Terrestrial("Ours", "s", 7, true, 4);
+
+        dolphin.eatMeat(Food.MEAT);
+        penguin.eatMeat(Food.MEAT);
+        bear.eatPlant(Food.PLANT);
+        bear.eatMeat(Food.MEAT);
+        bear.eatPlantAndMeet(Food.BOTH);
     }
 }

@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Aquatic extends Animal{
+public class Aquatic extends Animal implements Carnivore<Food>{
     private String habitat;
 
     public Aquatic(String family, String name, int age, boolean isMammal, String habitat){
@@ -33,4 +33,12 @@ public class Aquatic extends Animal{
                 this.getHabitat().equals(other.getHabitat());
     }
 
+    @Override
+    public void eatMeat(Food meat) {
+        if (meat == Food.MEAT) {
+            System.out.println(getName() + " aquatique mange de la viande ");
+        } else {
+            System.out.println(getName() + " ne le mange pas");
+        }
+    }
 }
