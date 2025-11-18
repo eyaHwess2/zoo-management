@@ -1,9 +1,6 @@
 package tn.esprit.prosit9.main;
 
-import tn.esprit.prosit9.entities.Departement;
-import tn.esprit.prosit9.entities.DepartementHashSet;
-import tn.esprit.prosit9.entities.Employee;
-import tn.esprit.prosit9.entities.SocieteArrayList;
+import tn.esprit.prosit9.entities.*;
 
 import java.util.TreeSet;
 
@@ -63,5 +60,41 @@ public class main {
         for (Departement d : tries) {
             System.out.println(d);
         }
+
+
+
+        // prosit 11
+        AffectationHashMap map = new AffectationHashMap();
+
+        Employee a1 = new Employee(10, "Aymen", "Khaled", "IT", 3);
+        Employee a2 = new Employee(11, "Mariem", "Salah", "RH", 2);
+        Employee a3 = new Employee(12, "Yassine", "Mokni", "Finance", 4);
+
+        Departement d1 = new Departement(100, "IT");
+        Departement d2 = new Departement(200, "RH");
+        Departement d3 = new Departement(300, "Finance");
+
+        map.ajouterEmployeDepartement(a1, d1);
+        map.ajouterEmployeDepartement(a2, d2);
+        map.ajouterEmployeDepartement(a3, d3);
+
+        map.afficherEmployesEtDepartements();
+
+        map.ajouterEmployeDepartement(a1, d3);
+        map.afficherEmployesEtDepartements();
+
+        map.supprimerEmploye(a2);
+        map.afficherEmployesEtDepartements();
+
+        map.supprimerEmployeEtDepartement(a1, d3);
+        map.afficherEmployesEtDepartements();
+
+        map.afficherEmployes();
+        map.afficherDepartements();
+
+        System.out.println(map.rechercherEmploye(a3));
+        System.out.println(map.rechercherDepartement(d2));
+
+        System.out.println(map.trierMap());
     }
 }

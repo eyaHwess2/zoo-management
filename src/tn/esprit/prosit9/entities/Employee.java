@@ -1,6 +1,6 @@
 package tn.esprit.prosit9.entities;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
     private int id;
     private String nom;
     private String prenom;
@@ -65,5 +65,10 @@ public class Employee {
     public String toString() {
         return "Employee [id=" + id + ", nom=" + nom + ", prenom=" + prenom +
                 ", departement=" + departement + ", grade=" + grade + "]";
+    }
+
+    @Override
+    public int compareTo(Employee e) {
+        return Integer.compare(this.id, e.id);
     }
 }
