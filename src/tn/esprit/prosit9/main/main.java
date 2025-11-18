@@ -1,7 +1,11 @@
 package tn.esprit.prosit9.main;
 
+import tn.esprit.prosit9.entities.Departement;
+import tn.esprit.prosit9.entities.DepartementHashSet;
 import tn.esprit.prosit9.entities.Employee;
 import tn.esprit.prosit9.entities.SocieteArrayList;
+
+import java.util.TreeSet;
 
 public class main {
     public static void main(String[] args) {
@@ -31,5 +35,33 @@ public class main {
         System.out.println("sup de eya");
         societe.supprimerEmploye(e2);
         societe.displayEmploye();
+
+
+        //prosit 10
+
+        DepartementHashSet dhs = new DepartementHashSet();
+
+        Departement dep1 = new Departement(30, "RH");
+        Departement dep2 = new Departement(15, "IT");
+        Departement dep3 = new Departement(20, "Finance");
+
+        dhs.ajouterDepartement(dep1);
+        dhs.ajouterDepartement(dep2);
+        dhs.ajouterDepartement(dep3);
+
+        dhs.displayDepartement();
+
+        System.out.println("Rechercher 'IT' : " + dhs.rechercherDepartement("IT"));
+        System.out.println("Rechercher 'Marketing' : " + dhs.rechercherDepartement("Marketing"));
+
+        System.out.println("Rechercher dep1 : " + dhs.rechercherDepartement(dep1));
+
+        dhs.supprimerDepartement(dep2);
+        dhs.displayDepartement();
+
+        TreeSet<Departement> tries = dhs.trierDepartementById();
+        for (Departement d : tries) {
+            System.out.println(d);
+        }
     }
 }
